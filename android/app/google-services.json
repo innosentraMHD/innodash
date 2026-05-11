@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713716137187",
+    "project_id": "innodash-19079",
+    "storage_bucket": "innodash-19079.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713716137187:android:668dd57188be314a3319d6",
+        "android_client_info": {
+          "package_name": "com.innodash.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp7HVKL-H6sIFOojDgwwePwH50pzx7LFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

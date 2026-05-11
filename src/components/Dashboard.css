@@ -1,0 +1,203 @@
+:root {
+  --color-blue: #36A2EB;
+  --color-turquoise: #4BC0C0;
+  --color-pistachio: #8BC34A;
+  --color-light-gray: #f9f9f9;
+  --color-dark-text: #004d40;
+}
+
+/* 🧱 القاعدة العامة */
+.dashboard-container {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: var(--color-dark-text);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* العنوان والتحكم */
+.dashboard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: var(--color-turquoise);
+}
+.dashboard-controls h2 {
+
+  color: #fff;
+}
+.dashboard-controls div label {
+  margin-right: 5px;
+  margin-left: 20px;
+}
+
+.dashboard-controls div select,
+.dashboard-controls div input[type="date"] {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.dashboard-controls div button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.dashboard-controls div button:hover {
+  opacity: 0.85;
+}
+
+.dashboard-controls div .toggle-btn {
+  background-color: var(--color-blue);
+}
+
+.dashboard-controls div .analyze-btn {
+  background-color: var(--color-pistachio);
+}
+
+/* 🧩 تقسيم الشاشة (المحتوى الرئيسي) */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow: hidden;
+}
+.settings-btn {
+          background-color: #6c757d;
+          color: white;
+          margin-left: 10px;
+        }
+
+.settings-btn:hover {
+          background-color: #5a6268;
+        }
+        
+.stats-report-btn {
+          background-color: #0284c7; 
+          color: white;
+          margin-left: 10px;
+        }
+
+.manage-btn {
+          background-color: #00c88c;
+          color: white;
+          margin-left: 10px;
+        }
+/* النصف الأيسر (المخطط) */
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+ 
+}
+.left-panel canvas {
+  max-width: 100%;
+ 
+}
+
+
+/* النصف الأيمن (الإحصائيات + المخططات الدائرية) */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: space-evenly;
+}
+
+/* بطاقات الإحصائيات */
+.stat-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2px;
+}
+
+.stat-card {
+  flex: 1 1 1 150px;
+  min-width: 130px;
+  background-color: var(--color-light-gray);
+  border-radius: 12px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  margin: 2px;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-card .icon {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.stat-card .value {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-card .label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* المخططات الدائرية */
+.doughnut-charts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.doughnut-chart {
+  flex: 1 1 200px;
+  min-width: 180px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+/* 🧭 استجابة للشاشات الصغيرة */
+@media (max-width: 992px) {
+  .dashboard-main {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+  }
+
+  .doughnut-charts {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-controls {
+    flex-direction: column;
+  }
+}
