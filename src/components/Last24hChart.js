@@ -27,75 +27,75 @@ const formatHourRange = (hour) => {
 export default function Last24hChart({ rawData, startDate }) {
   const theme = useTheme(); // استخدام الثيم للوصول للألوان والوضع الحالي
 
-  // const processedHourlyData = useMemo(() => {
-  //   const counts = Array(24).fill(0).map((_, i) => ({ hour: i, count: 0 }));
-  //   let total = 0;
-
-  //   if (!rawData) return counts;
-
-  //   rawData.forEach((rec) => {
-  //     try {
-  //       const h = new Date(rec.timestamp).getHours();
-  //       const c = rec.totalcount || 0;
-  //       if (counts[h]) counts[h].count += c;
-  //       total += c;
-  //     } catch (e) { }
-  //   });
-
-  //   return counts.map(i => ({
-  //     hour: i.hour,
-  //     count: i.count,
-  //     percentage: total > 0 ? (i.count / total) * 100 : 0
-  //   }));
-  // }, [rawData]);
-
   const processedHourlyData = useMemo(() => {
-    const counts = Array(24).fill(0).map((_, i) => ({ hour: i, count: 0, percentage: 0 }));
+    const counts = Array(24).fill(0).map((_, i) => ({ hour: i, count: 0 }));
     let total = 0;
 
     if (!rawData) return counts;
 
-    // 1. حساب العدد الكلي الصحيح أولاً
     rawData.forEach((rec) => {
       try {
-        total += rec.totalcount || 0;
+        const h = new Date(rec.timestamp).getHours();
+        const c = rec.totalcount || 0;
+        if (counts[h]) counts[h].count += c;
+        total += c;
       } catch (e) { }
     });
 
-    if (total === 0) return counts;
-
-    // 👇 --- التوزيع العشوائي الذكي للمعرض --- 👇
-
-    // الساعات المسموح بها (من 8 صباحاً إلى 10 مساءً)
-    // الساعات المستثناة ستظل صفر (23, 0, 1, 2, 3, 4, 5, 6, 7)
-    const activeHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
-    
-    // توليد أوزان عشوائية للساعات النشطة لتبدو البيانات طبيعية
-    const weights = activeHours.map(() => Math.random());
-    const weightSum = weights.reduce((a, b) => a + b, 0);
-
-    let distributed = 0;
-
-    activeHours.forEach((hour, index) => {
-      if (index === activeHours.length - 1) {
-        // إعطاء الباقي للساعة الأخيرة لضمان أن المجموع يتطابق 100% مع العدد الكلي
-        counts[hour].count = total - distributed;
-      } else {
-        // توزيع العدد بناءً على الوزن العشوائي
-        const amount = Math.floor((weights[index] / weightSum) * total);
-        counts[hour].count = amount;
-        distributed += amount;
-      }
-    });
-
-    // 👆 --- نهاية التعديل --- 👆
-
-    // حساب النسب المئوية النهائية
     return counts.map(i => ({
-      ...i,
+      hour: i.hour,
+      count: i.count,
       percentage: total > 0 ? (i.count / total) * 100 : 0
     }));
   }, [rawData]);
+
+  // const processedHourlyData = useMemo(() => {
+  //   const counts = Array(24).fill(0).map((_, i) => ({ hour: i, count: 0, percentage: 0 }));
+  //   let total = 0;
+
+  //   if (!rawData) return counts;
+
+  //   // 1. حساب العدد الكلي الصحيح أولاً
+  //   rawData.forEach((rec) => {
+  //     try {
+  //       total += rec.totalcount || 0;
+  //     } catch (e) { }
+  //   });
+
+  //   if (total === 0) return counts;
+
+  //   // 👇 --- التوزيع العشوائي الذكي للمعرض --- 👇
+
+  //   // الساعات المسموح بها (من 8 صباحاً إلى 10 مساءً)
+  //   // الساعات المستثناة ستظل صفر (23, 0, 1, 2, 3, 4, 5, 6, 7)
+  //   const activeHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+    
+  //   // توليد أوزان عشوائية للساعات النشطة لتبدو البيانات طبيعية
+  //   const weights = activeHours.map(() => Math.random());
+  //   const weightSum = weights.reduce((a, b) => a + b, 0);
+
+  //   let distributed = 0;
+
+  //   activeHours.forEach((hour, index) => {
+  //     if (index === activeHours.length - 1) {
+  //       // إعطاء الباقي للساعة الأخيرة لضمان أن المجموع يتطابق 100% مع العدد الكلي
+  //       counts[hour].count = total - distributed;
+  //     } else {
+  //       // توزيع العدد بناءً على الوزن العشوائي
+  //       const amount = Math.floor((weights[index] / weightSum) * total);
+  //       counts[hour].count = amount;
+  //       distributed += amount;
+  //     }
+  //   });
+
+  //   // 👆 --- نهاية التعديل --- 👆
+
+  //   // حساب النسب المئوية النهائية
+  //   return counts.map(i => ({
+  //     ...i,
+  //     percentage: total > 0 ? (i.count / total) * 100 : 0
+  //   }));
+  // }, [rawData]);
 
   const chartData = useMemo(() => ({
     labels: processedHourlyData.map(i => formatHourShort(i.hour)),

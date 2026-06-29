@@ -126,7 +126,7 @@ export const getTheme = (mode) => {
           root: {
             backgroundImage: 'none',
             backgroundColor: backgroundPaper,
-            backdropFilter: 'blur(12px)',
+            backdropFilter: 'blur(2px)',
           },
         },
       },
