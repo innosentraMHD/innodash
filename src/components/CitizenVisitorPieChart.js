@@ -35,8 +35,8 @@ export default function CitizenVisitorPieChart() {
     datasets: [
       {
         data: [data.locals_percentage, data.non_locals_percentage],
-        backgroundColor: [theme.palette.chartLegacy.sky, theme.palette.chartLegacy.pink],
-        hoverBackgroundColor: [theme.palette.chartLegacy.sky, theme.palette.chartLegacy.pink],
+        backgroundColor: ['#0A3C5A', '#D32F2F'],
+        hoverBackgroundColor: ['#0A3C5A', '#D32F2F'],
       },
     ],
   };

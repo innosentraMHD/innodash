@@ -79,7 +79,7 @@ function StatsReport({ onBackToDashboard }) {
 
 
   const SummaryItem = ({ title, value, color = 'primary.main' }) => (
-    <Paper sx={{ p: 2, textAlign: 'center', borderLeft: `4px solid`, borderColor: color }}>
+    <Paper elevation={0} sx={{ p: 2, textAlign: 'center', borderLeft: `4px solid`, borderColor: color, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderTop: '1px solid rgba(255, 255, 255, 0.3)', borderRight: '1px solid rgba(255, 255, 255, 0.3)', borderBottom: '1px solid rgba(255, 255, 255, 0.3)' }}>
       <Typography variant="caption" color="textSecondary">{title}</Typography>
       <Typography variant="h5" fontWeight="bold">{value}</Typography>
     </Paper>
@@ -97,7 +97,7 @@ function StatsReport({ onBackToDashboard }) {
       </Box>
 
       {/* Filters */}
-      <Paper sx={{ p: 3, mb: 3 }}>
+      <Paper elevation={0} sx={{ p: 3, mb: 3, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
         <Grid container spacing={2} alignItems="flex-end">
           <Grid item xs={12} md={3}>
             <FormControl fullWidth size="small">
@@ -157,7 +157,7 @@ function StatsReport({ onBackToDashboard }) {
       )}
 
       {data.length > 0 && (
-        <Paper>
+        <Paper elevation={0} sx={{ backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
           <Box p={2} borderBottom={1} borderColor="divider">
              <Typography variant="h6">Raw Data ({statistics.recordCount} records)</Typography>
           </Box>

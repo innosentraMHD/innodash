@@ -34,7 +34,7 @@ export const LoginPage = ({ onLoginSuccess }) => {
 
   return (
     <Container maxWidth="xs">
-      <Paper elevation={3} sx={{ mt: 8, p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Paper elevation={0} sx={{ mt: 8, p: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 4, border: '1px solid rgba(255, 255, 255, 0.3)' }}>
         <img src={logo} alt="Logo" style={{ height: 60, marginBottom: 20 }} />
         <Typography component="h1" variant="h5">Sign In</Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1, width: '100%' }}>
@@ -76,7 +76,7 @@ export const SetupPage = ({ onSetupSuccess }) => {
 
   return (
     <Container maxWidth="sm">
-      <Paper elevation={6} sx={{ mt: 8, p: 4, borderTop: `6px solid ${theme.palette.primary.main}` }}>
+      <Paper elevation={0} sx={{ mt: 8, p: 4, borderTop: `6px solid ${theme.palette.primary.main}`, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 4, border: '1px solid rgba(255, 255, 255, 0.3)' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
           <SettingsSystemDaydream fontSize="large" color="primary" />
           <Typography variant="h4">System Initialization</Typography>
@@ -133,7 +133,7 @@ export const RegisterPage = ({ token }) => {
 
   return (
     <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ mt: 8, p: 4 }}>
+      <Paper elevation={0} sx={{ mt: 8, p: 4, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: 4, border: '1px solid rgba(255, 255, 255, 0.3)' }}>
         <Typography variant="h5" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <PersonAdd /> Complete Registration
         </Typography>

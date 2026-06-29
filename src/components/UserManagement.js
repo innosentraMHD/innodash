@@ -9,6 +9,7 @@ import {
   Add, Delete, ContentCopy, Close, Security, VerifiedUser, 
   AdminPanelSettings, Person, Warning, Email, Edit
 } from '@mui/icons-material';
+import { alpha } from '@mui/material/styles';
 
 const UserManagement = () => {
   const theme = useTheme();
@@ -156,9 +157,9 @@ const UserManagement = () => {
   };
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: 1 }}>
       {/* Header Section */}
-      <Paper sx={{ display: 'flex', justifyContent: 'space-between',p:2, mt:3,mb: 3, alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+      <Paper elevation={0} sx={{ display: 'flex', justifyContent: 'space-between', p: 2, mt: 1, mb: 2, alignItems: 'center', flexWrap: 'wrap', gap: 2, backdropFilter: 'blur(12px)', backgroundColor: alpha(theme.palette.background.paper, 0.85) }}>
         <Box>
           <Typography variant="h5" color="primary" fontWeight="bold">
             Team & Roles
@@ -181,8 +182,8 @@ const UserManagement = () => {
         {Array.isArray(users) && users.map((user) => (
           <Paper 
             key={user.id} 
-            variant="outlined" 
-            sx={{ p: 2, borderRadius: 2, '&:hover': { bgcolor: 'action.hover' } }}
+            elevation={0}
+            sx={{ p: 2, borderRadius: 2, '&:hover': { bgcolor: alpha(theme.palette.action.hover, 0.8) }, backdropFilter: 'blur(12px)', backgroundColor: alpha(theme.palette.background.paper, 0.6), border: `1px solid ${theme.palette.divider}` }}
           >
             <Stack spacing={2}>
               

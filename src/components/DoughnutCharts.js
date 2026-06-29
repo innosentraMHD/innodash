@@ -14,13 +14,13 @@ const DoughnutCharts = ({ processedStats }) => {
 
   const options = {
     plugins: {
-      legend: { 
-        position: 'bottom', 
-        labels: { 
-          boxWidth: 12, 
+      legend: {
+        position: 'bottom',
+        labels: {
+          boxWidth: 12,
           padding: 15,
           color: theme.palette.text.primary // لون النص يتغير حسب الوضع
-        } 
+        }
       },
       tooltip: {
         callbacks: {
@@ -44,9 +44,9 @@ const DoughnutCharts = ({ processedStats }) => {
 
   const createData = (labels, data, colors) => ({
     labels,
-    datasets: [{ 
-      data, 
-      backgroundColor: colors, 
+    datasets: [{
+      data,
+      backgroundColor: colors,
       borderWidth: 2,
       borderColor: theme.palette.background.paper // لون الحدود يطابق خلفية الورقة
     }],
@@ -54,21 +54,21 @@ const DoughnutCharts = ({ processedStats }) => {
 
   // استخدام الألوان من الثيم
   const charts = [
-    { 
-      title: 'Gender', 
+    {
+      title: 'Gender',
       data: createData(
-        ['Male', 'Female'], 
-        [processedStats.totalMale, processedStats.totalFemale], 
-        [theme.palette.charts.male, theme.palette.charts.female]
-      ) 
+        ['Male', 'Female'],
+        [processedStats.totalMale, processedStats.totalFemale],
+        ['#0A3C5A', '#00a97cff']
+      )
     },
-    { 
-      title: 'Age', 
+    {
+      title: 'Age',
       data: createData(
-        ['Adult', 'Child'], 
-        [processedStats.totalAdult, processedStats.totalChild], 
-        [theme.palette.charts.adult, theme.palette.charts.child]
-      ) 
+        ['Adult', 'Child'],
+        [processedStats.totalAdult, processedStats.totalChild],
+        ['#0A3C5A', '#00a97cff']
+      )
     },
     // { 
     //   title: 'Residency', 
@@ -82,41 +82,37 @@ const DoughnutCharts = ({ processedStats }) => {
 
   return (
     <Box sx={{ p: 1, pt: 0, pb: 0 }}>
-      <Box 
-      
-        
-        container 
-        spacing={2} 
-        direction={ "row"}
+      <Grid
+        container
+        spacing={2}
         alignItems="stretch"
         justifyContent="center"
-        sx={{display: 'flex', flexDirection: 'row', gap: 2 }}
       >
         {charts.map((chart, index) => (
-          <Grid item xs={12} md={3} key={index}>
-            <Paper 
-              sx={{ 
-                p: 0.5, 
-                
+          <Grid item xs={12} sm={6} key={index}>
+            <Paper elevation={0}
+              sx={{
+                p: 0.5,
                 height: "100%",
-                display: 'flex', 
-                flexDirection: 'column', 
-                alignItems: 'center' ,
-                backgroundColor: theme.palette.background.default,
-                boxShadow:'none'
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                backdropFilter: 'blur(12px)',
+                backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                border: '1px solid rgba(255, 255, 255, 0.3)'
               }}
             >
               <Typography variant="subtitle2" color="textSecondary" gutterBottom>
                 {chart.title} Distribution
               </Typography>
-              <Box 
+              <Box
                 sx={{
-                  pb: 2, 
-                  flexGrow: 1, 
-                  position: 'relative', 
-                  width: "100%", 
-                  maxWidth: 160, 
-                  height: 160 
+                  pb: 2,
+                  flexGrow: 1,
+                  position: 'relative',
+                  width: "100%",
+                  maxWidth: 160,
+                  height: 160
                 }}
               >
                 <Doughnut data={chart.data} options={options} />
@@ -124,10 +120,9 @@ const DoughnutCharts = ({ processedStats }) => {
             </Paper>
           </Grid>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
-  
 };
 
 export default DoughnutCharts;

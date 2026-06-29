@@ -133,7 +133,7 @@ const currentStore = Array.isArray(storesList)
   : {};
 
   return (
-    <Box sx={{ height: 'calc(100vh - 100px)', display: 'flex', flexDirection: 'column', p: 2 }}>
+    <Box sx={{ height: 'calc(100vh - 80px)', display: 'flex', flexDirection: 'column', p: 1 }}>
       
       <Box mb={2}>
         <Typography variant="h5" color="primary" fontWeight="bold" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -146,7 +146,7 @@ const currentStore = Array.isArray(storesList)
         {/* Sidebar: Selection & Actions */}
         <Grid item xs={12} md={3} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {/* Store Selector */}
-          <Paper sx={{ p: 2 }}>
+          <Paper elevation={0} sx={{ p: 2, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
             <Typography variant="caption" fontWeight="bold" color="text.secondary">STORE SELECTION</Typography>
             <FormControl fullWidth size="small" sx={{ mt: 1 }}>
               <Select 
@@ -165,7 +165,7 @@ const currentStore = Array.isArray(storesList)
           </Paper>
 
           {/* Actions Panel */}
-          <Paper sx={{ p: 2 }}>
+          <Paper elevation={0} sx={{ p: 2, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
              <Typography variant="caption" fontWeight="bold" color="text.secondary">ACTIONS</Typography>
              <Stack spacing={2} mt={2}>
                 <input
@@ -208,7 +208,7 @@ const currentStore = Array.isArray(storesList)
 
         {/* Main Image Display */}
         <Grid item xs={12} md={9} sx={{ height: '100%' }}>
-          <Paper sx={{ height: '100%', p: 2, display: 'flex', flexDirection: 'column', bgcolor: theme.palette.custom.mapPanelBackground }}>
+          <Paper elevation={0} sx={{ height: '100%', p: 2, display: 'flex', flexDirection: 'column', bgcolor: 'rgba(255, 255, 255, 0.4)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
             <Box mb={1} display="flex" justifyContent="space-between" alignItems="center">
                 <Typography variant="h6" color="primary" fontWeight="bold">
                   {currentStore?.name || 'Map Preview'}

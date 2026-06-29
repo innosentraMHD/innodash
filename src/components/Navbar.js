@@ -143,7 +143,7 @@ const Navbar = ({ currentView, setCurrentView, user, onLogout, mode, setMode, au
 
   return (
     <>
-      <AppBar position="static" sx={{mt:2, borderBottom: `10px solid ${theme.palette.mode === 'light' ? 'linear-gradient(135deg,rgb(5, 0, 145) 0%,rgb(10, 0, 62) 100%)' : theme.palette.primary.dark}`}}>
+      <AppBar position="static" sx={{mt: 0, borderBottom: `4px solid ${theme.palette.primary.main}`}}>
         <Toolbar>
           <Box component="img" src={theme.palette.mode === 'light' ? logo : logo2} alt="Innosentra" sx={{ height: 40, width: 'auto', mr: 1 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: theme.palette.mode === 'light' ? theme.palette.text.secondary : 'primary.main', fontWeight: 700 }}>

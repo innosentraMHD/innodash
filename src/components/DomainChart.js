@@ -43,8 +43,8 @@ export default function DomainChart({ rawData }) {
     datasets: [{
       label: 'Percentage of Customers',
       data: processedDomainData.map(i => i.percentage),
-      backgroundColor: alpha(theme.palette.chartLegacy.pink, 0.5),
-      borderColor: alpha(theme.palette.chartLegacy.pink, 1),
+      backgroundColor: alpha('#0A3C5A', 0.5),
+      borderColor: '#0A3C5A',
       borderWidth: 1,
       barPercentage: 0.8,
       categoryPercentage: 0.9,

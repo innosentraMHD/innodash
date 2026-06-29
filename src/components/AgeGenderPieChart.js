@@ -35,8 +35,8 @@ export default function AgeGenderPieChart() {
     datasets: [
       {
         data: [data.male_percentage, data.female_percentage],
-        backgroundColor: [theme.palette.chartLegacy.sky, theme.palette.chartLegacy.pink],
-        hoverBackgroundColor: [theme.palette.chartLegacy.sky, theme.palette.chartLegacy.pink],
+        backgroundColor: ['#0A3C5A', '#028146ff'],
+        hoverBackgroundColor: ['#0A3C5A', '#02904eff'],
       },
     ],
   };
@@ -46,8 +46,8 @@ export default function AgeGenderPieChart() {
     datasets: [
       {
         data: [data.adult_percentage, data.child_percentage],
-        backgroundColor: [theme.palette.chartLegacy.amber, theme.palette.chartLegacy.cyan],
-        hoverBackgroundColor: [theme.palette.chartLegacy.amber, theme.palette.chartLegacy.cyan],
+        backgroundColor: ['#0A3C5A', '#02904eff'],
+        hoverBackgroundColor: ['#0A3C5A', '#02904eff'],
       },
     ],
   };

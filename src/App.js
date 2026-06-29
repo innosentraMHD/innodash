@@ -200,7 +200,7 @@ function App() {
               setMode={setMode}
               authToken={token}
             />
-            <Container maxWidth="xl" sx={{p:0, mt: 0, mb: 4 }}>
+            <Container maxWidth={false} disableGutters sx={{ p: 0, m: 0 }}>
               {renderViewBody()}
             </Container>
           </>
@@ -235,7 +235,7 @@ function App() {
         sx={{ 
           flexGrow: 1, 
           minHeight: '100vh', 
-          backgroundColor: mode === 'light' ? 'rgb(235, 235, 235)' : theme.palette.background.default, 
+          background: theme.palette.custom.primaryGradient, 
           color: 'text.primary' 
         }}
       >

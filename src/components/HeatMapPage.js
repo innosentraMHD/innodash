@@ -234,20 +234,15 @@ const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
   return (
     <Box 
       sx={{ 
-        height: '90vh', 
+        height: 'calc(100vh - 80px)', 
         display: 'flex', 
-        alignItems: 'center', // Centering the 80% height container vertically
-        justifyContent: 'center',
-   // Optional background color
-    
-        pt:0 
+        p: 1
       }}
     >
       <Box 
         sx={{ 
           width: '100%', 
-          maxWidth: '1400px', // Optional: keeps the layout from getting too wide on ultra-wide screens
-          height: '80vh',      // Forces the height to be 80% of the viewport height
+          height: '100%',
           display: 'flex', 
           flexDirection: { xs: 'column', md: 'row' },
           gap: 2
@@ -261,7 +256,7 @@ const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
             minHeight: 0 
           }}
         >
-          <Paper sx={{ height: '100%', p: 0, display: 'flex', flexDirection: 'column' }}>
+          <Paper elevation={0} sx={{ height: '100%', p: 0, display: 'flex', flexDirection: 'column', backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
             <Box mb={1} sx={{m: 1,ml:2}} display="flex" justifyContent="space-between" alignItems="center">
               <Typography variant="h6" color="primary" fontWeight="bold">
                 {currentStore?.store_name || 'Map Preview'}
@@ -336,7 +331,7 @@ const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
           }}
         >
           {/* Store Selection */}
-          <Paper sx={{ p: 2 }}>
+          <Paper elevation={0} sx={{ p: 2, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
             <Typography variant="caption" fontWeight="bold" color="text.secondary">STORE SELECTION</Typography>
             <FormControl fullWidth size="small" sx={{ mt: 1 }}>
               <Select value={selectedStoreId} onChange={(e) => setSelectedStoreId(e.target.value)}>
@@ -348,7 +343,7 @@ const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
           </Paper>
   
           {/* Heatmap Controls */}
-          <Paper sx={{ p: 2, flexGrow: 1 }}>
+          <Paper elevation={0} sx={{ p: 2, flexGrow: 1, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
              <FormControlLabel 
                 control={
                     <Switch 
@@ -431,7 +426,7 @@ const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
           </Paper>
   
           {/* Map Actions */}
-          <Paper sx={{ p: 2 }}>
+          <Paper elevation={0} sx={{ p: 2, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
              <Stack spacing={2}>
                 <input type="file" accept="image/*" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
                 <Button 

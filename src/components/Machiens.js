@@ -142,7 +142,7 @@ function Machiens({ onBackToDashboard }) {
   };
 
   return (
-    <Box sx={{ p: 2 }} >
+    <Box sx={{ p: 1 }} >
        <br/>
       <Stack direction="row" alignItems="center" justifyContent="space-between"  sx={{p:2, borderRadius:1, backgroundColor: theme.palette.mode === 'light' ? 'rgb(255,255,255)' : ""}}>
        
@@ -153,7 +153,7 @@ function Machiens({ onBackToDashboard }) {
       </Stack>
 
       {/* Create Section */}
-      <Paper sx={{ p: 3, mb: 4 ,boxShadow:"none"}}>
+      <Paper elevation={0} sx={{ p: 3, mb: 4, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
         <Typography variant="h6" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <AddCircle color="primary" /> Register New Device
         </Typography>
@@ -197,8 +197,8 @@ function Machiens({ onBackToDashboard }) {
   {Array.isArray(devices) && devices.map((device) => (
     <Paper 
       key={device.id} 
-      variant="outlined" 
-      sx={{ p: 2, borderRadius: 2, '&:hover': { bgcolor: 'action.hover' } }}
+      elevation={0}
+      sx={{ p: 2, borderRadius: 2, '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.5)' }, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}
     >
       <Stack spacing={2}>
         
@@ -260,7 +260,7 @@ function Machiens({ onBackToDashboard }) {
 
   {/* حالة عدم وجود أجهزة */}
   {devices.length === 0 && !loading && (
-    <Paper variant="outlined" sx={{ p: 4, textAlign: 'center', borderRadius: 2 }}>
+    <Paper elevation={0} sx={{ p: 4, textAlign: 'center', borderRadius: 2, backdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255, 255, 255, 0.3)' }}>
       <Typography color="text.secondary">
         No devices found.
       </Typography>
